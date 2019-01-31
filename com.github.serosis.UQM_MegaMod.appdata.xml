@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>com.github.serosis.UQM_MegaMod</id>
+  <name>The Ur-Quan Masters Mega Mod</name>
+  <project_license>GPL-2.0</project_license>
+  <developer_name></developer_name>
+  <summary>The Ur-Quan Masters Mega Mod</summary>
+  <metadata_license>GPL-2.0</metadata_license>
+  <url type="homepage">https://github.com/Serosis/UQM-MegaMod</url>
+  <description>
+    <p>
+      The best of the Ur-Quan Masters mods rolled up into one.
+    </p>
+  </description>
+  <releases>
+    <release version="0.8.0.82" date="2018-12-16"/>
+  </releases>
+</component>

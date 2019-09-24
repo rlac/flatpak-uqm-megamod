@@ -9,7 +9,7 @@
     "appstream-compose": false,
     "modules": [
         {
-            "name": "addon",
+            "name": "addon-3dovoice",
             "sources": [
                 {
                     "type": "file",

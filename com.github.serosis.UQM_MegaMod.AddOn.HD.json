@@ -9,7 +9,7 @@
     "appstream-compose": false,
     "modules": [
         {
-            "name": "addon",
+            "name": "addon-mm-hd",
             "sources": [
                 {
                     "type": "file",

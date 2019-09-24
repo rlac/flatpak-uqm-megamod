@@ -1,9 +1,20 @@
 {
     "app-id": "com.github.serosis.UQM_MegaMod",
+    "branch": "stable",
+    "add-extensions": {
+        "com.github.serosis.UQM_MegaMod.AddOn": {
+            "version": "0.8",
+            "directory": "extensions",
+            "merge-dirs": "addons",
+            "subdirectories": true,
+            "autodelete": true,
+            "no-autodownload": true
+        }
+    },
     "runtime": "org.freedesktop.Platform",
     "runtime-version": "18.08",
     "sdk": "org.freedesktop.Sdk",
-    "command": "UrQuanMasters",
+    "command": "launch.sh",
     "finish-args": [
         "--share=network",
         "--socket=x11",
@@ -108,6 +119,10 @@
                 {
                     "type": "file",
                     "path": "com.github.serosis.UQM_MegaMod.appdata.xml"
+                },
+                {
+                    "type": "file",
+                    "path": "launch.sh"
                 }
             ],
             "buildsystem": "simple",
@@ -117,7 +132,8 @@
                 "mkdir -p /app/share/icons/hicolor/256x256/apps",
                 "cp com.github.serosis.UQM_MegaMod.png /app/share/icons/hicolor/256x256/apps/com.github.serosis.UQM_MegaMod.png",
                 "mkdir -p /app/share/appdata",
-                "cp com.github.serosis.UQM_MegaMod.appdata.xml /app/share/appdata/com.github.serosis.UQM_MegaMod.appdata.xml"
+                "cp com.github.serosis.UQM_MegaMod.appdata.xml /app/share/appdata/com.github.serosis.UQM_MegaMod.appdata.xml",
+                "cp launch.sh /app/bin && chmod a+x /app/bin/launch.sh"
             ]
         },
         {
@@ -126,58 +142,13 @@
                     {
                         "type": "git",
                         "url": "https://github.com/Serosis/UQM-MegaMod.git",
-                        "tag": "0.8.0.82",
-                        "commit": "0bee7c04804126e6d7680737e7750f00cb1d9208"
+                        "tag": "0.8.0.84",
+                        "commit": "311de55d20d76d67c6495047a6cb3ff828ed2982"
                     },
                     {
                         "type": "file",
-                        "url": "http://prdownloads.sourceforge.net/sc2/uqm-0.7.0-3domusic.uqm?download",
-                        "sha256": "c57085e64dad4bddf8a679a9aa2adf63f2156d5f6cbabe63af80519033dbcb82",
-                        "dest-filename": "uqm-0.7.0-3domusic.uqm"
-                    },
-                    {
-                        "type": "file",
-                        "url": "http://prdownloads.sourceforge.net/sc2/uqm-remix-disc1.uqm?download",
-                        "sha256": "b697694745d939311e8ebffdd5edf692e010c25d7966e1481074940a4d0487e8",
-                        "dest-filename": "uqm-remix-disc1.uqm"
-                    },
-                    {
-                        "type": "file",
-                        "url": "http://prdownloads.sourceforge.net/sc2/uqm-remix-disc2.uqm?download",
-                        "sha256": "7fbb4744102e31273e4459b01a156da052ec537c128fe91793643e348bc1bade",
-                        "dest-filename": "uqm-remix-disc2.uqm"
-                    },
-                    {
-                        "type": "file",
-                        "url": "http://prdownloads.sourceforge.net/sc2/uqm-remix-disc3.uqm?download",
-                        "sha256": "e6d89f8f66cf1df1cb278fca1e92261b1776ee670dff26132e33f14dbd31e91d",
-                        "dest-filename": "uqm-remix-disc3.uqm"
-                    },
-                    {
-                        "type": "file",
-                        "url": "http://prdownloads.sourceforge.net/sc2/uqm-remix-disc4.uqm?download",
-                        "sha256": "a4c8197712a5b72a81c7ef7a2a33ea7d3ac90ab063c929dd68e7328a559a86d0",
-                        "dest-filename": "uqm-remix-disc4.uqm"
-                    },
-                    {
-                        "type": "file",
-                        "url": "http://files.serosis.net/MegaMod/uqm-0.8.0-3dovoice.uqm",
-                        "sha256": "1524a034049be7a39ec30cd45781247a520b70717e839d9af8eccff3789a10ae"
-                    },
-                    {
-                        "type": "file",
-                        "url": "http://files.serosis.net/MegaMod/uqm-0.7.0-3DOMusicRemastered.uqm",
-                        "sha256": "874fb3d52419b958670a5b62d8d657f5693c6aa31cb2a5b07819bb9c71794638"
-                    },
-                    {
-                        "type": "file",
-                        "url": "http://files.serosis.net/MegaMod/uqm-0.7.0-3dovideo.uqm",
-                        "sha256": "d61eb7dc5116cc79cef8f8b5ea699d710ee13433a368f52c2fa6b9fc762ae9a2"
-                    },
-                    {
-                        "type": "file",
-                        "url": "http://files.serosis.net/MegaMod/uqm-mm-hires4x.uqm",
-                        "sha256": "36419d8f4508ab5965320065a0616582b43791bc0d612f358da1e8a232ab4b2e"
+                        "url": "http://files.serosis.net/MegaMod/mm-0.8.0-content.uqm",
+                        "sha256": "271cee699240472ce99ab6338e1c0b371ce60d02488dfcf8974c575f0a2f79ce"
                     }
             ],
             "build-options": {
@@ -190,10 +161,10 @@
             },
             "buildsystem": "simple",
             "build-commands": [
+                "mkdir -p content/packages && cp mm-0.8.0-content.uqm content/packages/mm-0.8.0-content.uqm",
                 "./build.sh uqm",
                 "./build.sh uqm install",
-                "mkdir -p /app/share/uqm-megamod/content/addons",
-                "cp *.uqm /app/share/uqm-megamod/content/addons"
+                "install -d /app/extensions/addons"
             ]
         }
     ]

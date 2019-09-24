@@ -1,0 +1,27 @@
+{
+    "id": "com.github.serosis.UQM_MegaMod.AddOn.HD",
+    "branch": "0.8",
+    "runtime": "com.github.serosis.UQM_MegaMod",
+    "runtime-version": "stable",
+    "sdk": "org.freedesktop.Platform//18.08",
+    "build-extension": true,
+    "separate-locales": false,
+    "appstream-compose": false,
+    "modules": [
+        {
+            "name": "addon",
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "http://files.serosis.net/MegaMod/uqm-mm-hd.uqm",
+                    "sha256": "054370ef206ac96f33f20ddb2e429ed6e10cc50ce44afb34dbeba4747e46c89f"
+                }
+            ],
+            "buildsystem": "simple",
+            "build-commands": [],
+            "post-install": [
+                "install -Dm444 uqm-mm-hd.uqm ${FLATPAK_DEST}/addons/uqm-mm-hd.uqm"
+            ]
+        }
+    ]
+}

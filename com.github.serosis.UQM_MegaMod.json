@@ -12,7 +12,7 @@
         }
     },
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "18.08",
+    "runtime-version": "19.08",
     "sdk": "org.freedesktop.Sdk",
     "command": "launch.sh",
     "finish-args": [
@@ -31,8 +31,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.0.tar.gz",
-                    "sha256": "4387476a1933f36fec1531178ea204057bbeb04cc2d8396c9ea32720a1f7e264"
+                    "url": "ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.1.tar.gz",
+                    "sha256": "f6f484cfcd51e489afe88031afdea1e173aa652697e4c19ddbcb8260579a10f7"
                 }
             ],
             "cleanup": [
@@ -141,9 +141,8 @@
             "sources": [
                     {
                         "type": "git",
-                        "url": "https://github.com/Serosis/UQM-MegaMod.git",
-                        "tag": "0.8.0.84",
-                        "commit": "311de55d20d76d67c6495047a6cb3ff828ed2982"
+                        "url": "https://github.com/Serosis/UQM-MegaMod-Archived.git",
+                        "commit": "28672b417c8587cbda9b5c7aa1ac0fefdd04010f"
                     },
                     {
                         "type": "file",
@@ -161,7 +160,8 @@
             },
             "buildsystem": "simple",
             "build-commands": [
-                "mkdir -p content/packages && cp mm-0.8.0-content.uqm content/packages/mm-0.8.0-content.uqm",
+            	"mkdir -p bin/content/packages",
+		"cp mm-0.8.0-content.uqm bin/content/packages",
                 "./build.sh uqm",
                 "./build.sh uqm install",
                 "install -d /app/extensions/addons"

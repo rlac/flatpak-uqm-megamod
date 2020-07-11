@@ -1,4 +1,4 @@
-# The Ur-Quan Masters Flatpak
+# The Ur-Quan Masters MegaMod Flatpak
 
 A [Flatpak](https://flatpak.org/) build of [The Ur-Quan Masters MegaMod](https://github.com/Serosis/UQM-MegaMod).
 
@@ -9,11 +9,12 @@ This is a work in progress. For now you'll need to build the packages yourself.
 Building & installing the flatpak locally is simple - ensure flatpak-builder is installed on your system then run:
 
 ```bash
-# Flathub repo for the freedesktop runtime
+# Add the Flathub repo for the freedesktop runtime
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub org.freedesktop.Platform//18.08
-flatpak install flathub org.freedesktop.Sdk//18.08
-# Build and install the base app without optional add-ons
+# Install the Freedesktop runtime & SDK
+flatpak install flathub org.freedesktop.Platform//19.08
+flatpak install flathub org.freedesktop.Sdk//19.08
+# Build and install the base Ur-Quan Masters MegaMod app
 flatpak-builder --install --user builddir com.github.serosis.UQM_MegaMod.json --force-clean
 ```
 

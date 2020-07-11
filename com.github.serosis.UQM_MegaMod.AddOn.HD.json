@@ -3,7 +3,7 @@
     "branch": "0.8",
     "runtime": "com.github.serosis.UQM_MegaMod",
     "runtime-version": "stable",
-    "sdk": "org.freedesktop.Platform//18.08",
+    "sdk": "org.freedesktop.Platform//19.08",
     "build-extension": true,
     "separate-locales": false,
     "appstream-compose": false,

@@ -1,9 +1,9 @@
 {
     "id": "com.github.serosis.UQM_MegaMod.AddOn.Voice3DO",
-    "branch": "0.8",
+    "branch": "0.8.0.85",
     "runtime": "com.github.serosis.UQM_MegaMod",
     "runtime-version": "stable",
-    "sdk": "org.freedesktop.Platform//19.08",
+    "sdk": "org.freedesktop.Platform//20.08",
     "build-extension": true,
     "separate-locales": false,
     "appstream-compose": false,
@@ -13,14 +13,14 @@
             "sources": [
                 {
                     "type": "file",
-                    "url": "http://files.serosis.net/MegaMod/uqm-0.8.0-3dovoice.uqm",
-                    "sha256": "5e3b6eb31ade309d9be825a276134de75280da88ae8621774908395465bf00df"
+                    "url": "http://files.serosis.net/MegaMod/0.8.0.85/mm-0.8.0.85-3dovoice.uqm",
+                    "sha256": "00fd02838b119cc58b6b2e0b071d10134c9adddbb67f62b1b378c8b8bb94aa1a"
                 }
             ],
             "buildsystem": "simple",
             "build-commands": [],
             "post-install": [
-                "install -Dm444 uqm-0.8.0-3dovoice.uqm ${FLATPAK_DEST}/addons/uqm-0.8.0-3dovoice.uqm"
+                "install -Dm444 mm-0.8.0.85-3dovoice.uqm ${FLATPAK_DEST}/addons/mm-0.8.0.85-3dovoice.uqm"
             ]
         }
     ]

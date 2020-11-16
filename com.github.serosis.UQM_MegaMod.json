@@ -3,7 +3,7 @@
     "branch": "stable",
     "add-extensions": {
         "com.github.serosis.UQM_MegaMod.AddOn": {
-            "version": "0.8",
+            "version": "0.8.0.85",
             "directory": "extensions",
             "merge-dirs": "addons",
             "subdirectories": true,
@@ -12,7 +12,7 @@
         }
     },
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "19.08",
+    "runtime-version": "20.08",
     "sdk": "org.freedesktop.Sdk",
     "command": "launch.sh",
     "finish-args": [
@@ -54,58 +54,6 @@
             ]
         },
         {
-            "name": "sdl",
-            "config-opts": ["--disable-static"],
-            "rm-configure": true,
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://www.libsdl.org/release/SDL-1.2.15.tar.gz",
-                    "sha256": "d6d316a793e5e348155f0dd93b979798933fb98aa1edebcc108829d6474aad00"
-                },
-                {
-                    "type": "patch",
-                    "path": "sdl-xdata32.patch"
-                },
-                {
-                    "type": "script",
-                    "dest-filename": "autogen.sh",
-                    "commands": [
-                        "sed -i -e 's/.*AM_PATH_ESD.*//' configure.in",
-                        "cp -p /usr/share/automake-*/config.{sub,guess} build-scripts",
-                        "aclocal",
-                        "libtoolize",
-                        "autoconf"
-                    ]
-                }
-            ],
-            "cleanup": [
-                "/bin", "/share/man", "/share/aclocal", "/include", "/lib/pkgconfig", "/lib/*.la", "/lib/*.a", "/lib/pkgconfig"
-            ]
-        },
-        {
-            "name": "SDL_image",
-            "config-opts": ["--disable-static"],
-            "rm-configure": true,
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://www.libsdl.org/projects/SDL_image/release/SDL_image-1.2.12.tar.gz",
-                    "sha256": "0b90722984561004de84847744d566809dbb9daf732a9e503b91a1b5a84e5699"
-                },
-                {
-                    "type": "script",
-                    "dest-filename": "autogen.sh",
-                    "commands": [
-                        "AUTOMAKE=\"automake --foreign\" autoreconf -vfi"
-                    ]
-                }
-            ],
-            "cleanup": [
-                "/include", "/lib/*.la", "/lib/*.a", "/lib/pkgconfig"
-            ]
-        },
-        {
             "name": "desktop-resources",
             "sources": [
                 {
@@ -141,15 +89,17 @@
             "sources": [
                     {
                         "type": "git",
-                        "url": "https://github.com/Serosis/UQM-MegaMod-Archived.git",
-                        "commit": "28672b417c8587cbda9b5c7aa1ac0fefdd04010f"
+                        "url": "https://github.com/Serosis/UQM-MegaMod.git",
+                        "commit": "4605cf8cf121e35eeead3b7df8214c85eeac4b42",
+                        "tag": "0.8.0.85"
                     },
                     {
                         "type": "file",
-                        "url": "http://files.serosis.net/MegaMod/mm-0.8.0-content.uqm",
-                        "sha256": "271cee699240472ce99ab6338e1c0b371ce60d02488dfcf8974c575f0a2f79ce"
+                        "url": "http://files.serosis.net/MegaMod/0.8.0.85/mm-0.8.0.85-content.uqm",
+                        "sha256": "148df6b4f014193e478ac9d86b0d84ad7feab7bdaf8db76f7d7dc99025b9c509"
                     }
             ],
+           
             "build-options": {
                 "env": {
                     "INPUT_install_prefix_VALUE": "/app",
@@ -160,9 +110,10 @@
             },
             "buildsystem": "simple",
             "build-commands": [
-            	"mkdir -p bin/content/packages",
-		"cp mm-0.8.0-content.uqm bin/content/packages",
-                "./build.sh uqm",
+            	"mkdir -p content/packages",
+            	"echo \"0.8.0.85\" > content/version",
+            	"cp mm-0.8.0.85-content.uqm content/packages",
+            	"./build.sh uqm",
                 "./build.sh uqm install",
                 "install -d /app/extensions/addons"
             ]
